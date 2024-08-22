@@ -4,7 +4,9 @@
  */
 package archivos;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Date;
@@ -122,7 +124,7 @@ public class MiFile {
                 
     }
     
-    public void escribir(int opcion, String contenido){
+    public void escribirArchivo(int opcion, String contenido){
         try {
             FileWriter writer;
             
@@ -139,6 +141,24 @@ public class MiFile {
             }
         } catch (IOException e) {
             System.out.println("Error al escribir en el archivo.");
+        }
+    }
+    
+    public void leerArchivo(){
+        String contenido="";
+        try {
+            System.out.println("Contenido del archivo:");
+            System.out.println("-----------------------------------");
+            FileReader info = new FileReader(mf);
+            BufferedReader bufferedinfo = new BufferedReader(info); //Algo asi me decia la pagina que investigue
+            String linea;
+            while ((linea = bufferedinfo.readLine()) != null) {
+                System.out.println(linea);
+            }
+            bufferedinfo.close();
+            System.out.println("-----------------------------------");
+        } catch (IOException e) {
+            System.out.println("Error al leer el archivo.");
         }
     }
 }

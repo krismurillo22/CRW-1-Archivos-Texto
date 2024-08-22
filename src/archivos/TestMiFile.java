@@ -63,12 +63,15 @@ public class TestMiFile {
                     case 8:
                         System.out.println("Ingrese el contenido:");
                         contenido=lea.next();
-                        mf.escribir(8, contenido);
+                        mf.escribirArchivo(8, contenido);
                         break;
                     case 9:
                         System.out.println("Ingrese el contenido:");
                         contenido=lea.next();
-                        mf.escribir(9, contenido);
+                        mf.escribirArchivo(9, contenido);
+                        break;
+                    case 10:
+                        mf.leerArchivo();
                         break;
                 }
                 
