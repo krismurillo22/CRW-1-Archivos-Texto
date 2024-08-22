@@ -5,6 +5,7 @@
 package archivos;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Date;
 
@@ -119,5 +120,25 @@ public class MiFile {
             }
         }
                 
+    }
+    
+    public void escribir(int opcion, String contenido){
+        try {
+            FileWriter writer;
+            
+            if (opcion == 8){
+                writer = new FileWriter(mf);
+                writer.write(contenido);
+                writer.close();
+                System.out.println("Modificacion realizada correctamente.");
+            }else if(opcion == 9){
+                writer = new FileWriter(mf, true);
+                writer.write("\n"+contenido);
+                writer.close();
+                System.out.println("Modificacion realizada correctamente.");
+            }
+        } catch (IOException e) {
+            System.out.println("Error al escribir en el archivo.");
+        }
     }
 }

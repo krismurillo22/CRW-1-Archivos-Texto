@@ -16,8 +16,11 @@ public class TestMiFile {
     static MiFile mf=new MiFile();
     static Scanner lea=new Scanner(System.in);
     
+    
     public static void main (String[] args){
         int opcion=0;
+        String contenido="";
+        lea.useDelimiter("\n");
         do{
             System.out.println("\nMenu\n");
             System.out.println("1- Set el Archivo / folder");
@@ -27,7 +30,10 @@ public class TestMiFile {
             System.out.println("5- Borrar.");
             System.out.println("6- CMD - DIR");
             System.out.println("7- Tree");
-            System.out.println("8- Salir");
+            System.out.println("8- Escribir en archivo txt (Remplazando lo que ya existe)");
+            System.out.println("9- Escribir en archivo txt (Sin eliminar lo que ya existe)");
+            System.out.println("10- Leer el archivo txt");
+            System.out.println("11- Salir");
             System.out.println("Escoja una opcion");
 
             try{
@@ -54,6 +60,16 @@ public class TestMiFile {
                     case 7:
                         mf.tree();
                         break;
+                    case 8:
+                        System.out.println("Ingrese el contenido:");
+                        contenido=lea.next();
+                        mf.escribir(8, contenido);
+                        break;
+                    case 9:
+                        System.out.println("Ingrese el contenido:");
+                        contenido=lea.next();
+                        mf.escribir(9, contenido);
+                        break;
                 }
                 
             }catch(InputMismatchException e){
@@ -65,7 +81,7 @@ public class TestMiFile {
                 System.out.println("Error: "+e.getMessage());
             }
              
-        }while(opcion!=8);
+        }while(opcion!=11);
                       
     }
     
